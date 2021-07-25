@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const User = require('../models/auth-model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { loginValidation, registerValidation} = require('./validation');
+const { loginValidation, registerValidation} = require('./user_validation');
 
 
 //Registeration page route
@@ -24,7 +24,7 @@ router.post('/register',async(req,res) => {
     //Create new user
 
     const newUser = new User({
-        name:req.body.name,
+        username:req.body.username,
         email:req.body.email,
         password:hashedPassword
     })
