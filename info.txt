@@ -1,0 +1,13 @@
+Task Description
+-Codes are pushed to the GitHub repo.
+-To store the datas, MongoDB is used.
+-To test sections of the code, I've used Postman.
+-Nodemon is already installed, you run the application right away.
+
+-I couldnt complete the section 3 which is bonus part. Just wanted to let you know.
+
+Lastly, thank you for giving me this opportunity to test and show my coding skills.
+I hope you like my code and we can discuss it at next step. However, if things dont go in my favor,
+it's been a good experience for me. 
+
+Have a good day!
