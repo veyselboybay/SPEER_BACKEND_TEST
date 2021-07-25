@@ -65,6 +65,45 @@ router.post('/updateTweet/:userId/:tweetId',async(req,res) => {
         }
     })
 
-})
+});
+
+//Delete an existing Tweet
+router.post('/deleteTweet/:userId/:tweetId',async(req,res) => {
+    //check if user exists
+    const user = await User.findById(req.params.userId,(err) => {
+        if(err){
+            if(err.name === "CastError"){
+                return res.send('User cannot be found!');
+            }
+            else{
+                res.status(401).send('Access Denied!');
+            }
+        }
+    });
+
+    //Check if tweet exists
+    const tweet = await Tweet.findById(req.params.tweetId,(err) => {
+        if(err){
+            if(err.name === "CastError"){
+                return res.send('Tweet cannot be found! Either deleted or never existed!');
+            }
+            else{
+                res.status(401).send('Access Denied!');
+            }
+        }
+        
+    });
+
+    //Update the tweet
+    Tweet.deleteOne({_id:req.params.tweetId},(err) => {
+        if(err){
+            res.send('Error Occured, try again later!');
+        }
+        else{
+            res.status(200).send('Tweet deleted.');
+        }
+    })
+
+});
 
 module.exports = router;
