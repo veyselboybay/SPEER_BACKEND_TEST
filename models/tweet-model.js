@@ -4,7 +4,7 @@ const User = require('./auth-model');
 const tweetModel = new mongoose.Schema({
 
     "userID":String,
-    "twit":String,
+    "tweet":String,
     "created":{
         type:Date,
         default:Date.now
